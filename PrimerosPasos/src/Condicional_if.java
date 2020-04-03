@@ -1,6 +1,6 @@
 import java.util.*;
 
-import javax.swing.JOptionPane;
+
 public class Condicional_if {
 
 	public static void main(String[] args) {
