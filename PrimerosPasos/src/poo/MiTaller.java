@@ -1,6 +1,6 @@
 package poo;
 
-public class MiCoche {
+public class MiTaller {
 	
 	private String color;
 	private String modelo;
@@ -8,7 +8,7 @@ public class MiCoche {
 	private String matricula;
 	private int ruedas;
 	
-	public MiCoche(String color, String modelo, String mat, String prop) {
+	public MiTaller(String color, String modelo, String mat, String prop) {
 		propietario = prop;
 		ruedas = 4;
 		this.color = color;
@@ -48,7 +48,6 @@ public class MiCoche {
 		return ruedas;
 	}
 
-	@Override
 	public String toString() {
 		return "MiCoche [color=" + color + ", modelo=" + modelo + ", propietario=" + propietario + ", matricula="
 				+ matricula + "]";
