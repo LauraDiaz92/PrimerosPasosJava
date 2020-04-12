@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 public class Condicionales_ifelse_muchascondiciones {
 
 	public static void main(String[] args) {
@@ -19,5 +19,6 @@ public class Condicionales_ifelse_muchascondiciones {
         } else {
         	System.out.println("Eres anciano");
         }
+        scan.close();
 	}
 }

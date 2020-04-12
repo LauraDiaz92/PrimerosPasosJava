@@ -18,7 +18,7 @@ public class Ejercicio_Edades {
 		} else {
 			System.out.println("A vivir");
 		}
-			
+			scan.close();
 	}
 
 }

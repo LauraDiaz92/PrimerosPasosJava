@@ -19,6 +19,7 @@ public class Condicional_if {
 		else {
 			System.out.println("Eres menor de edad");
 		}
+		scan.close();
 	}
 
 }

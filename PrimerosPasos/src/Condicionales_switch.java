@@ -49,6 +49,7 @@ public class Condicionales_switch {
 			default:
 				System.out.println("La opción no es correcta");
 		}
+		scan.close();
 	}
 
 }

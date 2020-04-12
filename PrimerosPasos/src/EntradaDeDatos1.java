@@ -26,6 +26,7 @@ public class EntradaDeDatos1 {
 		// un entero, y cuando lo introduzca lo almacenará dentro de la variable "edad"
 		System.out.println("Hola, " + s + ". El año que viene tendrás " + (n + 1) + " años.");
 
+		scan.close();
 	}
 
 }
