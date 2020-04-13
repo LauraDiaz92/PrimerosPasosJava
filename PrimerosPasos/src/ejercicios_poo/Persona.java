@@ -16,7 +16,6 @@ package ejercicios_poo;
 	    public static final int SOBREPESO = 1;
 	 
 	    //Atributos
-	    
 	    private String nombre;
 	    private int edad;
 	    private String DNI; // DNI de la persona, se genera al construir el objeto
@@ -41,6 +40,8 @@ package ejercicios_poo;
 	        this.peso = peso;
 	        this.altura = altura;
 	        generarDni();
+	        
+	     
 	        this.sexo = sexo;
 	        comprobarSexo();
 	    }
