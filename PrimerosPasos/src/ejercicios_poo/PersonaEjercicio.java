@@ -20,9 +20,9 @@ Se implantaran varios constructores:
 [X]esMayorDeEdad(): indica si es mayor de edad, devuelve un booleano.
 [x]comprobarSexo(char sexo): comprueba que el sexo introducido es correcto. Si no es correcto, sera H. No sera visible al exterior.
 [X]toString(): devuelve toda la información del objeto.
-generaDNI(): genera un número aleatorio de 8 cifras, genera a partir de este su número su letra correspondiente. 
-Este método sera invocado cuando se construya el objeto. Puedes dividir el método para que te sea más fácil.
- No será visible al exterior.
+[x]generaDNI(): genera un número aleatorio de 8 cifras, genera a partir de este su número su letra correspondiente. 
+[x]Este método sera invocado cuando se construya el objeto. Puedes dividir el método para que te sea más fácil.
+[x] No será visible al exterior.
 Métodos set de cada parámetro, excepto de DNI.
 Ahora, crea una clase ejecutable que haga lo siguiente:
 
@@ -141,7 +141,7 @@ public class PersonaEjercicio {
 			dni = dni.concat(s);
 			
 			// lo mismo pero usando la clase Random en lugar del metodo random() de la clase Math
-			// dni += rnd.nextInt(10);
+			// dni += rnd.nextInt(9);
 		}
 		
 		// Anadir una letra al final
@@ -151,7 +151,8 @@ public class PersonaEjercicio {
 		 * 
 		 * El metodo nextInt(n) devuelve un entero entre 0 y "n" (parametro)
 		 * 
-		 * Sumamos 65 a lo devuelto por nextInt(23) --> Un entero entre 65 y 88 (65+23)
+		 * Usamos el método RANDOM. (rnd.next.Int(23) + 65); siendo 23 el número de letras de abecedario y 65 la
+		 * posición por la que se empieza a contar (A mayúscula en la tabla ASCII)
 		 * 
 		 * A ese int le hacemos un casting a tipo char y aqui esta el truco:
 		 * JAVA va a comprobar a la tabla de codigos ASCII que caracter esta representado por ese entero
@@ -159,7 +160,7 @@ public class PersonaEjercicio {
 		 * 
 		 * Tabla ASCII para comprobarlo: https://www.ascii-code.com/
 		 * 
-		 * Por ultimo, anadimos la letra a lo que ya teniamos en dni. Todo eso se hace en una linea, los pasos
+		 * Por ultimo, concatenamos la letra a lo que ya teniamos en dni. Todo eso se hace en una linea, los pasos
 		 * se leen de derecha a izquierda
 		 */
 		dni += (char)(rnd.nextInt(23) + 65);
