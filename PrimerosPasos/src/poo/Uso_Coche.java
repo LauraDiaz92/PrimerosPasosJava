@@ -15,21 +15,17 @@ public class Uso_Coche {
 
 		
 		Coche fiat = new Coche();
+		fiat.setColor("azul");
 		System.out.println(fiat.toString());
 		
 		Coche opel = new Coche(false, true);
-		System.out.println(opel.toString());
 		opel.setColor("Amarillo");
 		System.out.println(opel.toString());
 		
 		Coche c3 = new Coche(400, 500, 600,700,true,true);
 		System.out.println(c3.toString());
 		
-//		System.out.println(fiat.getDatosgenerales());
-//
-//		fiat.set_color("rojo");
-//
-//		System.out.println(fiat.getColor());
+
 
 	}
 

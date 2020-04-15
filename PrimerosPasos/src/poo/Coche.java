@@ -3,8 +3,8 @@ package poo;
 public class Coche {
 
 	// Ya hemos creado la clase COCHE y ahora hay que especificar las
-	// características COMUNES que van a tener
-	// todos los objetos de la clase
+	// características COMUNES que van a tener todos los objetos de la clase
+	
 
 	private int ruedas;
 	private int largo;

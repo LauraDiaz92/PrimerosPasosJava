@@ -14,7 +14,7 @@ public class CuentaDeAhorrosMain {
 		System.out.println(Anonimo.toString());
 		
 
-		CuentaDeAhorros uno = new CuentaDeAhorros ("Titular de la cuenta 1"); //Va al método donde tiene el atributo "propietario"
+		CuentaDeAhorros uno = new CuentaDeAhorros("Titular de la cuenta 1"); //Va al método donde tiene el atributo "propietario"
 		CuentaDeAhorros dos = new CuentaDeAhorros ("Titular de la cuenta 2");
 		
 		uno.ingresar(550);

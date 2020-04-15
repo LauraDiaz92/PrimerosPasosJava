@@ -1,4 +1,5 @@
 package ejercicios_poo;
+
 import java.util.Random;
 
 /*Haz una clase llamada Persona que siga las siguientes condiciones:
@@ -23,15 +24,8 @@ Se implantaran varios constructores:
 [x]generaDNI(): genera un número aleatorio de 8 cifras, genera a partir de este su número su letra correspondiente. 
 [x]Este método sera invocado cuando se construya el objeto. Puedes dividir el método para que te sea más fácil.
 [x] No será visible al exterior.
-Métodos set de cada parámetro, excepto de DNI.
-Ahora, crea una clase ejecutable que haga lo siguiente:
-
-Pide por teclado el nombre, la edad, sexo, peso y altura.
-Crea 3 objetos de la clase anterior, el primer objeto obtendrá las anteriores variables pedidas por teclado, el segundo objeto obtendrá todos los anteriores menos el peso y la altura y el último por defecto, para este último utiliza los métodos set para darle a los atributos un valor.
-Para cada objeto, deberá comprobar si esta en su peso ideal, tiene sobrepeso o por debajo de su peso ideal con un mensaje.
-Indicar para cada objeto si es mayor de edad.
-Por último, mostrar la información de cada objeto.
-Puedes usar métodos en la clase ejecutable, para que os sea mas fácil. */
+[x]Métodos set de cada parámetro, excepto de DNI.
+ */
 
 public class PersonaEjercicio {
 
@@ -46,6 +40,7 @@ public class PersonaEjercicio {
 
 	// LAS CONSTANTES SIEMPRE SE ESCRIBEN EN MAYÚSCULA. Se generan como constantes
 	// para poder reutilizarlas
+
 	public static final int INFRAPESO = -1;
 	public static final int PESOIDEAL = 0;
 	public static final int SOBREPESO = 1;
@@ -67,16 +62,17 @@ public class PersonaEjercicio {
 	 * @param peso     {double} peso de la persona
 	 * @param alturacm {double} altura de la persona
 	 */
-	public PersonaEjercicio(String nombre, int edad, char sexo, int peso, int alturacm) {
+	public PersonaEjercicio(String nombre, int edad, char sexo, double peso, double alturacm) {
 		this.nombre = nombre;
 		this.edad = edad;
-		if (sexo == 'H' || sexo == 'M')  {
+		if (sexo == 'H' || sexo == 'M') {
 			this.sexo = sexo;
 		} else {
 			this.sexo = SEXO_DEF;
 		}
 		this.peso = peso;
 		this.alturacm = alturacm;
+		dni = generar_dni();
 	}
 
 	/**
@@ -93,11 +89,12 @@ public class PersonaEjercicio {
 
 	/**
 	 * Calcula el indice de masa corporal y devuelve un entero en funcion de si la
-	 * persona tiene sobrepeso, tiene un peso idea o esta por debajo del peso ideal. 
-	 * @return -1 si el peso esta por debajo del ideal, 0 si el peso es ideal, 1 si 
-	 * tiene sobrepeso
+	 * persona tiene sobrepeso, tiene un peso idea o esta por debajo del peso ideal.
+	 * 
+	 * @return -1 si el peso esta por debajo del ideal, 0 si el peso es ideal, 1 si
+	 *         tiene sobrepeso
 	 */
-	public double calcularIMC() {
+	public int calcularIMC() {
 		double pesoactual = (peso / (Math.pow(alturacm, 2)));
 
 		if (pesoactual < 20) {
@@ -112,63 +109,119 @@ public class PersonaEjercicio {
 
 	/**
 	 * Averigua si la persona es mayor o menor de edad. Devuelve un boolean
-	 * @return true si la persona es mayor de edad. False si la persona es menor de edad
+	 * 
+	 * @return true si la persona es mayor de edad. False si la persona es menor de
+	 *         edad
 	 */
 	public boolean mayordeedad() {
-		if (edad >= MAYORIA_DE_EDAD) { //Declarar una constante por si alguna vez hay que cambiar la edad
+		if (edad >= MAYORIA_DE_EDAD) { // Declarar una constante por si alguna vez hay que cambiar la edad
 			return true;
 		} else {
 			return false;
 		}
 	}
-	
+
 	/**
-	 * Genera un numero de dni aleatorio siguiendo el siguiente patron: nnnnnnnX (7 numeros seguidos de una letra)
+	 * Genera un numero de dni aleatorio siguiendo el siguiente patron: nnnnnnnX (7
+	 * numeros seguidos de una letra)
+	 * 
 	 * @return el dni aleatorio generado
 	 */
 	private String generar_dni() {
 		Random rnd = new Random();
 		String dni = "";
-		
+
 		// rellenar con 8 cifras entre 0 y 9 aleatoriamente
 		for (int i = 0; i < 8; i++) {
 			// genera un numero aleatorio entre 0 y 9 y lo guarda en la variable n
-			int n = (int)Math.round(Math.random()*10); 
-			// convierte n de un entero a un String (por que lo queremos añadir a la variable dni y dni es string)
+			int n = (int) Math.round(Math.random() * 10);
+			// convierte n de un entero a un String (por que lo queremos añadir a la
+			// variable dni y dni es string)
 			String s = String.valueOf(n);
-			// concatena lo que ya teniamos hasta ahora en dni mas lo que hay en s (el ultimo digito aleatorio que
+			// concatena lo que ya teniamos hasta ahora en dni mas lo que hay en s (el
+			// ultimo digito aleatorio que
 			// hemos generado
 			dni = dni.concat(s);
-			
-			// lo mismo pero usando la clase Random en lugar del metodo random() de la clase Math
+
+			// lo mismo pero usando la clase Random en lugar del metodo random() de la clase
+			// Math
 			// dni += rnd.nextInt(9);
 		}
-		
+
 		// Anadir una letra al final
 		/*
-		 * Creamos un objeto de la clase Random. Importada al inicio del archivo. El objeto se declara al inicio de
-		 * este metodo, junto a la declaracion de la variable DNI (Ver un poco mas arriba)
+		 * Creamos un objeto de la clase Random. Importada al inicio del archivo. El
+		 * objeto se declara al inicio de este metodo, junto a la declaracion de la
+		 * variable DNI (Ver un poco mas arriba)
 		 * 
 		 * El metodo nextInt(n) devuelve un entero entre 0 y "n" (parametro)
 		 * 
-		 * Usamos el método RANDOM. (rnd.next.Int(23) + 65); siendo 23 el número de letras de abecedario y 65 la
-		 * posición por la que se empieza a contar (A mayúscula en la tabla ASCII)
+		 * Usamos el método RANDOM. (rnd.next.Int(23) + 65); siendo 23 el número de
+		 * letras de abecedario y 65 la posición por la que se empieza a contar (A
+		 * mayúscula en la tabla ASCII)
 		 * 
-		 * A ese int le hacemos un casting a tipo char y aqui esta el truco:
-		 * JAVA va a comprobar a la tabla de codigos ASCII que caracter esta representado por ese entero
-		 * y lo transforma. Los caracteres de letras mayusculas se representan por los enteros entre 65 y 88
+		 * A ese int le hacemos un casting a tipo char y aqui esta el truco: JAVA va a
+		 * comprobar a la tabla de codigos ASCII que caracter esta representado por ese
+		 * entero y lo transforma. Los caracteres de letras mayusculas se representan
+		 * por los enteros entre 65 y 88
 		 * 
 		 * Tabla ASCII para comprobarlo: https://www.ascii-code.com/
 		 * 
-		 * Por ultimo, concatenamos la letra a lo que ya teniamos en dni. Todo eso se hace en una linea, los pasos
-		 * se leen de derecha a izquierda
+		 * Por ultimo, concatenamos la letra a lo que ya teniamos en dni. Todo eso se
+		 * hace en una linea, los pasos se leen de derecha a izquierda
 		 */
-		dni += (char)(rnd.nextInt(23) + 65);
-		
+		dni += (char) (rnd.nextInt(23) + 65);
+
 		return dni;
 	}
 
+	/**
+	 * @param nombre the nombre to set
+	 */
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	/**
+	 * @param edad the edad to set
+	 */
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
+	/**
+	 * @param sexo the sexo to set
+	 */
+	public void setSexo(char sexo) {
+		this.sexo = sexo;
+	}
+
+	/**
+	 * @param peso the peso to set
+	 */
+	public void setPeso(double peso) {
+		this.peso = peso;
+	}
+
+	/**
+	 * @param alturacm the alturacm to set
+	 */
+	public void setAlturacm(double alturacm) {
+		this.alturacm = alturacm;
+	}
+	
+	/**
+	 * 
+	 * @return nombre el nombre de la persona
+	 */
+	public String getNombre() {
+		return nombre;
+	}
+
 	@Override
+	/**
+	 * toString. Imprime todos los atributos del objeto
+	 */
 	public String toString() {
 		return "PersonaEjercicio [nombre=" + nombre + ", edad=" + edad + ", dni=" + dni + ", sexo=" + sexo + ", peso="
 				+ peso + ", alturacm=" + alturacm + "]";
