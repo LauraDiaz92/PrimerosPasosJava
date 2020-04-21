@@ -4,9 +4,9 @@ import javax.swing.*;
 [X]Crea un array de Passwords con el tamaño que tu le indiques por teclado.
 [X]Crea un bucle que cree un objeto para cada posición del array.
 [x]Indica también por teclado la longitud de los Passwords (antes de bucle).
-[ ]Crea otro array de booleanos donde se almacene si el password del array de Password es o no fuerte 
+[x]Crea otro array de booleanos donde se almacene si el password del array de Password es o no fuerte 
 (usa el bucle anterior).
-[ ]Al final, muestra la contraseña y si es o no fuerte (usa el bucle anterior). Usa este simple formato:
+[x]Al final, muestra la contraseña y si es o no fuerte (usa el bucle anterior). Usa este simple formato:
 contraseña1 valor_booleano1
 
 contraseña2 valor_bololeano2*/
@@ -30,7 +30,7 @@ public class ContraseñaMain {
 		
 		for (int i = 0; i < misContraseñas.length; i++) {
 			// setlongitud con lo que dice el usuario
-			misContraseñas[i].setLongitud(x);
+			//misContraseñas[i].setLongitud(x);
 			
 			misContraseñas[i].actualizaContraseña();
 		}
@@ -49,8 +49,32 @@ public class ContraseñaMain {
 			misContraseñas[i] = new Contraseña();
 			misContraseñas[i].actualizaContraseña();
 			System.out.println("Contraseña " + (i + 1) + ": " + misContraseñas[i].getContraseña());
+			
+		
+		//Crea otro array de booleanos donde se almacene si el password del array de Password es o no fuerte 
+		//(usa el bucle anterior)
+		}
 		
 		
+		//Contraseña [] misContraseñas = new Contraseña [4];
+		
+		boolean [] mi_caja_de_bools = new boolean[misContraseñas.length];
+		
+		
+		for (int i = 0; i < misContraseñas.length; i++) {
+			misContraseñas[i] = new Contraseña();
+			misContraseñas[i].actualizaContraseña();
+			mi_caja_de_bools[i] = misContraseñas[i].esFuerte();
+			System.out.print("Contraseña " + (i + 1) + ": " + misContraseñas[i].getContraseña() + " : ");
+			
+			if (misContraseñas[i].esFuerte() == true) {
+				System.out.println("La contraseña es fuerte");
+			} else { System.out.println("La contraseña es débil");
+			}
+			
+		
+		
+			
 		}
 	}
 

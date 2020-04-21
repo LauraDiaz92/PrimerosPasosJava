@@ -11,12 +11,23 @@ public class Coche {
 	private int ancho;
 	private int motor; // centímetros cúbicos que va a tener el motor
 	private int peso_plataforma;
-
+	
+	private final static int RUEDAS_DEF = 4;
+	private final static int LARGO_DEF = 2000;
+	private final static int ANCHO_DEF = 300;
+	private final static int MOTOR_DEF = 1600;
+	private final static int PESO_PLATAFORMA_DEF = 500;
+	
 	// Ahora vamos a indicar las propiedades que pueden variar dependiendo del coche
 
 	private String color;
 	private int pesototal;
 	private boolean asientosCuero, climatizador;
+	
+	private final static String COLOR_DEF = "";
+	private final static int PESOTOTAL_DEF = 0;
+	private final static boolean ASIENTOSCUERO_DEF = false;
+	private final static boolean CLIMATIZADOR_DEF = false;
 
 	// Hay que recurrir a los métodos setters para establecer el valor de estas
 	// variables
@@ -27,35 +38,30 @@ public class Coche {
 	// MISMO NOMBRE QUE LA CLASE
 
 	public Coche() {
-
-		ruedas = 4;
-		largo = 2000;
-		ancho = 300;
-		motor = 1600;
-		peso_plataforma = 500;
-		asientosCuero = true;
-		climatizador = true;
-
+		this(RUEDAS_DEF, LARGO_DEF, ANCHO_DEF, MOTOR_DEF, PESO_PLATAFORMA_DEF, ASIENTOSCUERO_DEF,
+				CLIMATIZADOR_DEF, PESOTOTAL_DEF, COLOR_DEF);
 	}
 	
+	//ASIENTOSCUERO no tiene ningún SET, entonces, el valor que le demos desde este constructor no va a poder 
+	//modificarse. Por ejemplo, si le decimos que si tiene asientos de cuero, y no tiene set, despues no
+	//le vamos a poder decir que no los tiene
 	public Coche(boolean asientosCuero, boolean climatizador) {
-		ruedas = 4;
-		largo = 2000;
-		ancho = 300;
-		motor = 1600;
-		peso_plataforma = 500;
-		this.asientosCuero = asientosCuero;
-		this.climatizador = climatizador;
+		this(RUEDAS_DEF, LARGO_DEF, ANCHO_DEF, MOTOR_DEF, PESO_PLATAFORMA_DEF, asientosCuero, climatizador, 
+				PESOTOTAL_DEF, COLOR_DEF);
+	
 	}
 	
-	public Coche(int largo, int ancho, int motor, int peso_plataforma, boolean asientosCuero, boolean climatizador) {
-		ruedas = 4;
+	private Coche(int ruedas, int largo, int ancho, int motor, int peso_plataforma, boolean asientosCuero, 
+			boolean climatizador, int pesototal, String color) {
+		this.ruedas = ruedas;
 		this.largo = largo;
 		this.ancho = ancho;
 		this.motor = motor;
 		this.peso_plataforma = peso_plataforma;
 		this.asientosCuero = asientosCuero;
 		this.climatizador = climatizador;
+		this.pesototal = pesototal;
+		this.color = color;
 	}
 
 	public void setColor(String color_coche) {
