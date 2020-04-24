@@ -2,28 +2,22 @@ package poo;
 
 public class Coche {
 
-	// Ya hemos creado la clase COCHE y ahora hay que especificar las
-	// características COMUNES que van a tener todos los objetos de la clase
-	
-
 	private int ruedas;
 	private int largo;
 	private int ancho;
 	private int motor; // centímetros cúbicos que va a tener el motor
 	private int peso_plataforma;
-	
+	private String color;
+	private int pesototal;
+	private boolean asientosCuero, climatizador;
+	private static int numeroDeVehiculos;
+
+	// FINAL: NO SE PUEDE CAMBIAR  STATIC: EL ATRIBUTO PERTENECE A LA CLASE, NO AL OBJETO
 	private final static int RUEDAS_DEF = 4;
 	private final static int LARGO_DEF = 2000;
 	private final static int ANCHO_DEF = 300;
 	private final static int MOTOR_DEF = 1600;
 	private final static int PESO_PLATAFORMA_DEF = 500;
-	
-	// Ahora vamos a indicar las propiedades que pueden variar dependiendo del coche
-
-	private String color;
-	private int pesototal;
-	private boolean asientosCuero, climatizador;
-	
 	private final static String COLOR_DEF = "";
 	private final static int PESOTOTAL_DEF = 0;
 	private final static boolean ASIENTOSCUERO_DEF = false;
@@ -32,26 +26,18 @@ public class Coche {
 	// Hay que recurrir a los métodos setters para establecer el valor de estas
 	// variables
 
-	// Ahora vamos a usar un MÉTODO CONSTRUCTOR para especificar cuántas ruedas
-	// tiene, cuánto de largo...
-	// Se encarga de dar un estado inicial a nuestro objeto. Tiene que tener EL
-	// MISMO NOMBRE QUE LA CLASE
-
 	public Coche() {
-		this(RUEDAS_DEF, LARGO_DEF, ANCHO_DEF, MOTOR_DEF, PESO_PLATAFORMA_DEF, ASIENTOSCUERO_DEF,
-				CLIMATIZADOR_DEF, PESOTOTAL_DEF, COLOR_DEF);
-	}
-	
-	//ASIENTOSCUERO no tiene ningún SET, entonces, el valor que le demos desde este constructor no va a poder 
-	//modificarse. Por ejemplo, si le decimos que si tiene asientos de cuero, y no tiene set, despues no
-	//le vamos a poder decir que no los tiene
-	public Coche(boolean asientosCuero, boolean climatizador) {
-		this(RUEDAS_DEF, LARGO_DEF, ANCHO_DEF, MOTOR_DEF, PESO_PLATAFORMA_DEF, asientosCuero, climatizador, 
+		this(RUEDAS_DEF, LARGO_DEF, ANCHO_DEF, MOTOR_DEF, PESO_PLATAFORMA_DEF, ASIENTOSCUERO_DEF, CLIMATIZADOR_DEF,
 				PESOTOTAL_DEF, COLOR_DEF);
-	
 	}
-	
-	private Coche(int ruedas, int largo, int ancho, int motor, int peso_plataforma, boolean asientosCuero, 
+
+	public Coche(boolean asientosCuero, boolean climatizador) {
+		this(RUEDAS_DEF, LARGO_DEF, ANCHO_DEF, MOTOR_DEF, PESO_PLATAFORMA_DEF, asientosCuero, climatizador,
+				PESOTOTAL_DEF, COLOR_DEF);
+
+	}
+
+	private Coche(int ruedas, int largo, int ancho, int motor, int peso_plataforma, boolean asientosCuero,
 			boolean climatizador, int pesototal, String color) {
 		this.ruedas = ruedas;
 		this.largo = largo;
@@ -62,10 +48,11 @@ public class Coche {
 		this.climatizador = climatizador;
 		this.pesototal = pesototal;
 		this.color = color;
+		this.numeroDeVehiculos++;
 	}
 
 	public void setColor(String color_coche) {
-		
+
 		color = color_coche;
 
 		// Vamos a decirle a setter que va a recibir un parámetro (para elegir el color
@@ -76,15 +63,13 @@ public class Coche {
 
 		return "El color del coche es " + color;
 	}
-	
+
 	public String getDatosgenerales() {
-		
-		return "La plataforma del vehículo tiene " + ruedas + " ruedas." + " Mide " + largo/1000 +
-				" metros con un ancho de " + ancho + " cm y un peso de plataforma de " + peso_plataforma + " kilos"; 
-		
+
+		return "La plataforma del vehículo tiene " + ruedas + " ruedas." + " Mide " + largo / 1000
+				+ " metros con un ancho de " + ancho + " cm y un peso de plataforma de " + peso_plataforma + " kilos";
+
 	}
-	
-	//public void setAsientoscuero() {
 
 	public void setRuedas(int nuevas_ruedas) {
 
@@ -93,11 +78,24 @@ public class Coche {
 		}
 	}
 
-	@Override
-	public String toString() {
-		return "Coche [ruedas=" + ruedas + ", largo=" + largo + ", ancho=" + ancho + ", motor=" + motor
-				+ ", peso_plataforma=" + peso_plataforma + ", color=" + color + ", pesototal=" + pesototal
-				+ ", asientosCuero=" + asientosCuero + ", climatizador=" + climatizador + "]";
+	/**
+	 * Recalcula el peso total del vehiculo si se le aniaden extras como
+	 * climatizador o asientos de cuero. Este metodo es llamado desde los metodos
+	 * set para los atributos asientos de cuero y climatizador
+	 */
+	public void recalculaPesoTotal() {
+		if (asientosCuero == true) {
+			pesototal = peso_plataforma + 50;
+		}
+
+		if (climatizador == true) {
+			pesototal = peso_plataforma + 20;
+		}
+
+	}
+
+	public int getPesoTotal() {
+		return pesototal;
 	}
 
 	public int getRuedas() {
@@ -109,7 +107,9 @@ public class Coche {
 	}
 
 	public void setLargo(int largo) {
-		this.largo = largo;
+		if (largo > 0) {
+			this.largo = largo;
+		}
 	}
 
 	public int getAncho() {
@@ -134,6 +134,46 @@ public class Coche {
 
 	public void setPeso(int peso_plataforma) {
 		this.peso_plataforma = peso_plataforma;
+	}
+
+	@Override
+	public String toString() {
+		return "Coche [ruedas=" + ruedas + ", largo=" + largo + ", ancho=" + ancho + ", motor=" + motor
+				+ ", peso_plataforma=" + peso_plataforma + ", color=" + color + ", pesototal=" + pesototal
+				+ ", asientosCuero=" + asientosCuero + ", climatizador=" + climatizador + "]";
+	}
+
+	/**
+	 * @return the asientosCuero
+	 */
+	public boolean isAsientosCuero() {
+		return asientosCuero;
+	}
+
+	/**
+	 * @param asientosCuero the asientosCuero to set
+	 */
+	public void setAsientosCuero(boolean asientosCuero) {
+		this.asientosCuero = asientosCuero;
+	}
+
+	/**
+	 * @return the climatizador
+	 */
+	public boolean isClimatizador() {
+		return climatizador;
+	}
+
+	/**
+	 * @param climatizador the climatizador to set
+	 */
+	public void setClimatizador(boolean climatizador) {
+		this.climatizador = climatizador;
+		recalculaPesoTotal();
+	}
+	
+	public int getNumeroDeVehiculos() {
+		return numeroDeVehiculos;
 	}
 
 }

@@ -11,9 +11,9 @@ public class Persona {
 	private int edad;
 	
 	/**
-	 * @param nombre
-	 * @param dirección
-	 * @param edad
+	 * @param nombre {String} Nombre de la persona
+	 * @param dirección {String} Dirección de la persona
+	 * @param edad  {int} Edad de la persona
 	 */
 	public Persona(String nombre, String direccion, int edad) {
 		this.nombre = nombre;
@@ -22,42 +22,42 @@ public class Persona {
 	}
 
 	/**
-	 * @return the nombre
+	 * @return the nombre {String} Nombre de la persona
 	 */
 	public String getNombre() {
 		return nombre;
 	}
 
 	/**
-	 * @param nombre the nombre to set
+	 * @param nombre the nombre to set {String} Nombre de la persona
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
 	/**
-	 * @return the direccion
+	 * @return the direccion {String} Dirección de la persona
 	 */
 	public String getDireccion() {
 		return direccion;
 	}
 
 	/**
-	 * @param dirección the direccion to set
+	 * @param dirección the direccion to set {String} Dirección de la persona
 	 */
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
 
 	/**
-	 * @return the edad
+	 * @return the edad {int} Edad de la persona
 	 */
 	public int getEdad() {
 		return edad;
 	}
 
 	/**
-	 * @param edad the edad to set
+	 * @param edad the edad to set {int} Edad de la persona
 	 */
 	public void setEdad(int edad) {
 		this.edad = edad;

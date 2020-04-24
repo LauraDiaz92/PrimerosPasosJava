@@ -7,10 +7,10 @@ public class Clientes extends Persona{
 	private String sexo;
 
 	/**
-	 * @param nombre
-	 * @param direccion
-	 * @param edad
-	 * @param sexo
+	 * @param nombre {String} Nombre de la persona
+	 * @param direccion {String} Dirección de la persona
+	 * @param edad {int} Edad de la persona
+	 * @param sexo {String} Sexo del cliente
 	 */
 	public Clientes(String nombre, String direccion, int edad, String sexo) {
 		super(nombre, direccion, edad);
@@ -18,7 +18,7 @@ public class Clientes extends Persona{
 	}
 
 	/**
-	 * @return the sexo
+	 * @return the sexo {String} Sexo del cliente
 	 */
 	public String getSexo() {
 		return sexo;
