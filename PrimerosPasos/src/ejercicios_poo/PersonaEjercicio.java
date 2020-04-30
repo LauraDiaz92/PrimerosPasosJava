@@ -139,8 +139,7 @@ public class PersonaEjercicio {
 			// variable dni y dni es string)
 			String s = String.valueOf(n);
 			// concatena lo que ya teniamos hasta ahora en dni mas lo que hay en s (el
-			// ultimo digito aleatorio que
-			// hemos generado
+			// ultimo digito aleatorio que hemos generado
 			dni = dni.concat(s);
 
 			// lo mismo pero usando la clase Random en lugar del metodo random() de la clase

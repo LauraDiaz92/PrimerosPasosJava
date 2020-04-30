@@ -1,5 +1,4 @@
 package miEjercicio;
-import java.util.*;
 
 // extends Persona se refiere a la clase de la que hereda
 public class Empleados extends Persona {
@@ -68,6 +67,11 @@ public class Empleados extends Persona {
 	public String toString() {
 		return "Empleados [salario=" + salario + ", fechaAlta=" + fechaAlta + ", puesto=" + puesto + ", toString()="
 				+ super.toString() + "]";
+	}
+	
+	
+	public void queSoy() {
+		System.out.print("Soy empleado");
 	}
 
 	

@@ -31,7 +31,9 @@ public class Clientes extends Persona{
 
 	
 	
-	
+	public void queSoy() {
+		System.out.print("Soy cliente");
+	}
 	
 	
 }

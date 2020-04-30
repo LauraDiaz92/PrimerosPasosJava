@@ -1,22 +1,16 @@
 package ejercicios_poo;
-
-import java.util.*;
 import javax.swing.*;
 
 /*
- * Pide por teclado el nombre, la edad, sexo, peso y altura.
+ * Pide por teclado el nombre, la edad, peso y altura.
  * Crea 3 objetos de la clase anterior:
  * [x] El primer objeto obtendrá las anteriores variables pedidas por teclado 
  * [x] El segundo objeto obtendrá todos los anteriores menos el peso y la altura
  * [x] El tercero usara el constructor por defecto
- *  
  * [x] Para este último utiliza los métodos set para darle a los atributos un valor.
- * 
  * [x] Para cada objeto, deberá comprobar si esta en su peso ideal, tiene sobrepeso o 
  * por debajo de su peso ideal con un mensaje.
- * 
  * [x] Indicar para cada objeto si es mayor de edad.
- * 
  * [x] Mostrar la información de cada objeto.
  */
 

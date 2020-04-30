@@ -1,6 +1,6 @@
 package miEjercicio;
 
-public class Persona {
+public abstract class Persona {
 	
 	//Aquí vamos a utilizar la HERENCIA. 
 	// La clase EMPLEADOS y la clase CLIENTES comparten atributos comunes por el hecho de ser personas (nombre,
@@ -62,6 +62,8 @@ public class Persona {
 	public void setEdad(int edad) {
 		this.edad = edad;
 	}
+	
+	public abstract void queSoy();
 
 	@Override
 	public String toString() {

@@ -10,7 +10,7 @@ public class random {
 		
 		// rellenar con 8 cifras entre 0 y 9 aleatoriamente
 		for (int i = 0; i < 8; i++) {
-			dni += rnd.nextInt(9);
+			dni += rnd.nextInt(10);
 		}
 		
 		// anadir una letra al final
