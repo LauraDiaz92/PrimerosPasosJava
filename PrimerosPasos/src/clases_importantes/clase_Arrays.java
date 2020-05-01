@@ -29,7 +29,7 @@ public class clase_Arrays {
 		Comparable ejemplo= new Emple("Ana", 27000, 2006,11,8);
 		
 		//Una vez hecho esto se puede utilizar la instrucción INSTANCEOF (comprobar si una instancia pertenece
-		//a una clase o no).
+		//a una interfaz o no).
 		
 		if (ejemplo instanceof Comparable) {
 			

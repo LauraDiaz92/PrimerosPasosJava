@@ -28,7 +28,9 @@ public class Uso_Empleado {
 			System.out.println("Es de tipo Jefatura");
 		}
 		
-		
+		////Ahora vamos a llamar al método de la interfaz estableceBonus
+		System.out.println("El empleado " + misEmpleados[1].dameNombre() + " tiene un bonus de " +
+		misEmpleados[1].estableceBonus(250.60));
 		
 		
 				
@@ -69,17 +71,29 @@ public class Uso_Empleado {
 		jefe_RRHH.estableceIncentivo(200.50);
 		
 		System.out.println(jefe_RRHH.toString());
+		
+		//Ahora vamos a llamar al método de la interfaz jefes (tomar decisiones)
+		System.out.println(jefe_RRHH.tomarDecisiones("Contratar personal"));
+		//Ahora vamos a llamar al método de la interfaz estableceBonus
+		System.out.println("El jefe de RRHH: " + jefe_RRHH.dameNombre() + " tiene un bonus de " 
+		+ jefe_RRHH.estableceBonus(432));
+		
 
 	}
 }
 
 
 
-class Empleado {
+class Empleado implements bonusInterfazUsoEmpleado {
 	private String nombre;
 	private double sueldo;
 	private Date altaContrato; // construye una fecha con el día, el mes y el año. Pertenece a java.util.
 
+	public double estableceBonus(double bonus) {
+		
+		return bonusInterfazUsoEmpleado.bonus_base + bonus;
+		
+	}
 	
 	public Empleado(String name, double salary, int year, int month, int day) {
 		nombre = name;
@@ -126,12 +140,19 @@ class Empleado {
 
 
 
-class Jefatura extends Empleado implements jefes {
+class Jefatura extends Empleado implements jefesInterfazUsoEmpleado {
 	
 	//IMPLEMENTAMOS EL MÉTODO DE LA INTERFAZ JEFES
-	public String tomarDecisiones(String decision) {
+	public String tomarDecisiones(String decision) { //?????????
 		
-		return "Un miembro de la dirección ha tomado la decisión de: " + decision;
+		return "Un miembro de la dirección ha tomado la decisión de: " + decision; //??????
+	}
+	
+	public double estableceBonus(double bonus) {  //?????????
+		double prima = 2000;
+		return bonusInterfazUsoEmpleado.bonus_base + bonus + prima; //???????
+		//bonus base = 1500 + bonus que le pasemos por parámetro + prima
+		
 	}
 	
 	
