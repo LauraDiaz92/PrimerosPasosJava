@@ -1,5 +1,7 @@
 package clases_importantes;
 import javax.swing.*;
+
+import java.awt.Toolkit;
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.Timer;
@@ -11,16 +13,15 @@ public class clase_timer_temporizador {
 		//Vamos a crear un programa que imprime por pantalla la hora que es cada x tiempo.
 		//Para crear un temporizador se utiliza la CLASE TIMER
 		
-		//Construtor: 
-		//primer parámetro: cuánto tiempo va a tardar la acción en repetirse(en milisegundos)
-		//segundo parámetro: objeto de tipo interfaz. (Ver siguiente clase)
-		
 		dameLaHora oyente = new dameLaHora();
 		
 		//También funcionaría esto : crear una instancia de tipo ActionListener (interfaz), pero a la hora de
 		//llamar al constructor le decimos que es de tipo dameLaHora (clase de la interfaz)
 		//ActionListener oyente = new dameLaHora()
 		
+		//Construtor: 
+				//primer parámetro: cuánto tiempo va a tardar la acción en repetirse(en milisegundos)
+				//segundo parámetro: objeto de tipo interfaz. (Ver siguiente clase)
 		Timer mi_temporizador = new Timer (5000, oyente);
 		
 		//Método: START() es de la clase TIMER. Para que comienze a ejecutar el temporizador
@@ -52,6 +53,9 @@ class dameLaHora implements ActionListener {
 		Date ahora = new Date();
 		System.out.println("Te pongo lo hora cada 5 segundos " + ahora);
 		
+		//Ahora además de imprimir, vamos a usar TOOLIK para que haga un beep en cada impresión
+		
+		Toolkit.getDefaultToolkit().beep();
 	}
 	
 }
