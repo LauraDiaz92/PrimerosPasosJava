@@ -48,11 +48,13 @@ class marcoCentrado extends JFrame {
 		
 		//ICONONUEVO: getImage, clase TOOLKIT
 		
-		Image miIcono = miPantalla.getImage("src/aplicacionesGraficas/coronavirus"); 
+		Image miIcono = miPantalla.getImage("src\\aplicacionesGraficas\\coronavirus.jpg"); 
 		//Empezar por la raiz de la carpeta del proyecto
 		
 		//ADMITE      GIF, JPEG or PNG
 		setIconImage(miIcono);
+		
+		System.out.println("El fijo \"me voy\"");
 		
 		
 		/*otra forma de cambiar iconos de los JFrame es la siguiente: usando la clase 

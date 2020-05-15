@@ -11,9 +11,9 @@ class crearFrame_I {
 		
 		miMarco miMarco1 = new miMarco();
 		
-		miMarco1.setVisible(true); //EN EL MAIN O EN LA OTRA CLASE?????
+		miMarco1.setVisible(true); //TIENE QUE SER LA ULTIMA INSTRUCCION
 		//También hay que decirle qué tiene que hacer esta ventana cuando se cierre:
-		miMarco1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //EN EL MAIN O EN LA OTRA CLASE?????
+		miMarco1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 	}
 
