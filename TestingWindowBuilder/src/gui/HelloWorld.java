@@ -30,10 +30,17 @@ import java.awt.event.ActionEvent;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.ScrollPane;
 
 public class HelloWorld {
 
 	private JFrame frmHello;
+	/**
+	 * @wbp.nonvisual location=529,149
+	 */
+	private final ScrollPane scrollPane = new ScrollPane();
 
 	/**
 	 * Launch the application.
@@ -84,6 +91,16 @@ public class HelloWorld {
 		panel_2.add(lblNewLabel);
 		
 		JButton btnNewButton = new JButton("BOTON 1");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				lblNewLabel.setText("Dentro del boton");
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				lblNewLabel.setText("Salgo del boton");
+			}
+		});
 		btnNewButton.setBackground(new Color(255, 218, 185));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

@@ -56,8 +56,7 @@ public class MyCalc extends JFrame {
 		contentPane.setLayout(gbl_contentPane);
 		
 		given1_field = new JTextField();
-		given1_field.setText("Give a number");
-		given1_field.setToolTipText("");
+		given1_field.setToolTipText("Give a number");
 		GridBagConstraints gbc_given1_field = new GridBagConstraints();
 		gbc_given1_field.insets = new Insets(0, 0, 5, 0);
 		gbc_given1_field.anchor = GridBagConstraints.WEST;
